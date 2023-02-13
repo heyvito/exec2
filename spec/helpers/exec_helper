@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e
+
+echo "EXEC: /bin/bash"
+echo "SHELL: $SHELL"
+all_args=($0 "$@")
+all_args=$(IFS=,; echo "${all_args[*]}")
+echo "ARGS: ${all_args}"
+echo "PWD: $(pwd)"
+echo "--- ENV BEGIN ---"
+echo "$(env)"
+echo "--- ENV END ---"
+
+hexdump=$(xxd -p < /dev/stdin)
+echo "STDIN: $hexdump"
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --exec-helper-exit-1)
+      exit 1
+      ;;
+    --exec-helper-output-on-stderr)
+      echo "something on stderr" > /dev/stderr
+      ;;
+  esac
+  shift
+done
