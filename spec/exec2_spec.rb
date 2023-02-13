@@ -14,7 +14,7 @@ RSpec.describe Exec2 do
     path = parsed.delete(:env)["PATH"].split(":")
     expect(parsed).to eq({
       exec: "/bin/bash",
-      shell: "/bin/zsh",
+      shell: user_shell,
       args: %w[spec/helpers/exec_helper --exec-helper-output-on-stderr],
       pwd: pwd
     })
@@ -42,7 +42,7 @@ RSpec.describe Exec2 do
     path = parsed.delete(:env)["PATH"].split(":")
     expect(parsed).to eq({
       exec: "/bin/bash",
-      shell: "/bin/zsh",
+      shell: user_shell,
       args: %w[spec/helpers/exec_helper --exec-helper-output-on-stderr
                --exec-helper-exit-1],
       pwd: pwd

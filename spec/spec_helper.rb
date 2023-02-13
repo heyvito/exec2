@@ -11,10 +11,20 @@ SimpleCov.start do
   add_filter "/spec/"
 end
 
+require 'etc'
 require "exec2"
 require_relative "./exec_parser"
 
+module Helpers
+  def user_shell
+    login = Etc.getlogin
+    Etc.getpwnam(login).shell
+  end
+end
+
 RSpec.configure do |config|
+  include Helpers
+
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
 
