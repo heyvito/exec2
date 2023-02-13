@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version = Exec2::VERSION
   spec.authors = ["Victor Gama"]
   spec.email = ["hey@vito.io"]
-  spec.license = 'MIT'
+  spec.license = "MIT"
 
   spec.summary = "Small interface wrapping Process::spawn"
   spec.description = spec.summary

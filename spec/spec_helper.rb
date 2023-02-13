@@ -11,7 +11,7 @@ SimpleCov.start do
   add_filter "/spec/"
 end
 
-require 'etc'
+require "etc"
 require "exec2"
 require_relative "./exec_parser"
 
