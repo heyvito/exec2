@@ -1,8 +1,6 @@
 AllCops:
   TargetRubyVersion: 2.6
   NewCops: enable
-  Exclude:
-    - lib/slop/slop.rb
 
 Style/StringLiterals:
   Enabled: true
